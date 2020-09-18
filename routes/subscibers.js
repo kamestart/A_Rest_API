@@ -1,18 +1,19 @@
 const Sub = require('../models/subscriber')
 const express = require('express')
 const router = express.Router()
+json_file = require('../views/return_statement.json')
 
 router.get('/', async (req, res) => {
     try {
-        const subscribers = await Sub.find()
-        res.json(subscribers)
+        res.json({ json_file })
+        
     } catch (err) {
         res.status(500).json({ message: err.message })
     }
 })
 
-router.get('/:id', (req, res) => {
-    req.params.id
+router.get('/:id', getSub, (req, res) => {
+    res.json(res.sub)
 })
 
 router.post('/', async (req, res) => {
@@ -28,12 +29,30 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.patch('/:id' , (req, res) => {
+router.patch('/:id' ,getSub,  async (req, res) => {
+    if (req.body.name == null) {
+        res.sub.name = req.body.name
+    }
 
+    if (req.body.subedToChannel == null) {
+        res.sub.subedToChannel = req.body.subedToChannel
+    }
+
+    try {
+        const updatedSub = await res.sub.save()
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
 })
 
-router.delete('/:id' , (req, res) => {
-    
+router.delete('/:id' ,getSub,  async (req, res) => {
+    try {
+        await res.sub.remove()
+        res.json({ messgae: 'deleted Subscriber' })
+    } catch (err) {
+        res.status(500).json({ messgae: err.message })
+
+    }
 })
 
 async function getSub(req, res, next) {
@@ -48,6 +67,7 @@ async function getSub(req, res, next) {
     }
 
     res.sub = sub
+    next()
 }
 
 module.exports = router

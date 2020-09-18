@@ -2,7 +2,7 @@ GET http://localhost:3000/pkhdbbash52471
 
 ###
 
-GET http://localhost:3000/pkhdbbash52471/15
+GET http://localhost:3000/pkhdbbash52471/5f649c739431f1269025f912
 
 ###
 
@@ -10,6 +10,6 @@ POST http://localhost:3000/pkhdbbash52471
 Content-Type: application/json
 
 {
-    "name" : "Manit Aggarwal",
+    "name" : "Manit Amazing Guy Called Guy",
     "subToChannel": "Web Dev Simplified"
 }
