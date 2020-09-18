@@ -1,1 +1,15 @@
 GET http://localhost:3000/pkhdbbash52471
+
+###
+
+GET http://localhost:3000/pkhdbbash52471/15
+
+###
+
+POST http://localhost:3000/pkhdbbash52471
+Content-Type: application/json
+
+{
+    "name" : "Manit Aggarwal",
+    "subToChannel": "Web Dev Simplified"
+}
