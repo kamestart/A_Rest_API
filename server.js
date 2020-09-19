@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || '3000'
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()   
 }
@@ -15,3 +16,6 @@ app.use(express.json())
 const subsRouter = require('./routes/subscibers')
 app.use('/pkhdbbash52471', subsRouter)
 
+app.listen(PORT, () => {
+    console.log(`Server Started On Port ${PORT}`);
+})
