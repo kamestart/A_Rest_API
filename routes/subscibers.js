@@ -4,7 +4,7 @@ const router = express.Router()
 json_file = require('../views/return_statement.json')
 
 router.get('/', async (req, res) => {
-    await res.header("Access-Control-Allow-Origin", "*") 
+    res.header("Access-Control-Allow-Origin", "*") 
     try {
         res.json({ json_file })
     } catch (err) {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 
 
 router.post('/', async (req, res) => {
-    await res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Origin", "*")
     const subscriber = new Sub({
         name: req.body.name,
         subedToChannel: req.body.subToChannel
@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
 })
 
 router.patch('/:id', getSub, async (req, res) => {
-    await res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Origin", "*")
     if (req.body.name == null) {
         res.sub.name = req.body.name
     }
@@ -46,7 +46,7 @@ router.patch('/:id', getSub, async (req, res) => {
 
 router.delete('/:id', getSub, async (req, res) => {
 
-    await res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Origin", "*")
     try {
         await res.sub.remove()
         res.json({ messgae: 'deleted Subscriber' })
@@ -57,7 +57,7 @@ router.delete('/:id', getSub, async (req, res) => {
 })
 
 async function getSub(req, res, next) {
-    await res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Origin", "*")
     let sub
     try {
         sub = await Sub.findById(req.params.id)
