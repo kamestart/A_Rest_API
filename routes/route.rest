@@ -1,12 +1,12 @@
-GET https://rest-apiy.herokuapp.com/pkhdbbash52471
+GET https://pure-anchorage-70580.herokuapp.com/pkhdbbash52471
 
 ###
 
-GET https://rest-apiy.herokuapp.com/pkhdbbash52471/5f649c739431f1269025f912
+GET https://pure-anchorage-70580.herokuapp.com/pkhdbbash52471
 
 ###
 
-POST https://rest-apiy.herokuapp.com/pkhdbbash52471
+POST https://pure-anchorage-70580.herokuapp.com/pkhdbbash52471
 Content-Type: application/json
 
 {
@@ -16,4 +16,4 @@ Content-Type: application/json
 
 ###
 
-DELETE https://rest-apiy.herokuapp.com/pkhdbbash52471/5f64b0c02e521a05d0c2ad8b
+DELETE https://pure-anchorage-70580.herokuapp.com/pkhdbbash52471/5f64b0c02e521a05d0c2ad8b
