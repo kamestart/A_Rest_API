@@ -12,9 +12,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', getSub, (req, res) => {
-    res.json(res.sub)
-})
 
 router.post('/', async (req, res) => {
     const subscriber = new Sub({
