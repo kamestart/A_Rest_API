@@ -1,4 +1,3 @@
-const PORT = process.env.PORT || '8080'
 if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()   
 }
@@ -16,4 +15,3 @@ app.use(express.json())
 const subsRouter = require('./routes/subscibers')
 app.use('/pkhdbbash52471', subsRouter)
 
-app.set("port", PORT)
